@@ -1,13 +1,50 @@
-// Mobile Menu Toggle
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
+// Initialize AOS Animation
+AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
 });
 
-// Smooth Scroll for Navigation Links
+// Preloader
+window.addEventListener('load', () => {
+    const preloader = document.querySelector('.preloader');
+    preloader.style.opacity = '0';
+    setTimeout(() => {
+        preloader.style.display = 'none';
+    }, 500);
+});
+
+// Navigation
+document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('.luxury-nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Sticky Navigation
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile Menu Toggle
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    });
+});
+
+// Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -17,39 +54,83 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form Submission
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+// Theme Toggle
+const themeToggle = document.querySelector('.theme-toggle');
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    themeToggle.querySelector('i').classList.toggle('fa-sun');
+    themeToggle.querySelector('i').classList.toggle('fa-moon');
     
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-    };
-
-    // Here you would typically send the form data to a server
-    console.log('Form submitted:', formData);
-    
-    // Show success message
-    alert('Thank you for your message! We will get back to you soon.');
-    contactForm.reset();
+    // Save theme preference
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
 });
 
-// Package Option Selection
-const packageOptions = document.querySelectorAll('.option');
+// Check saved theme preference
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+    themeToggle.querySelector('i').classList.add('fa-sun');
+}
 
-packageOptions.forEach(option => {
-    option.addEventListener('click', function() {
-        packageOptions.forEach(opt => opt.classList.remove('active'));
-        this.classList.add('active');
+// Contact Form Handling
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        submitBtn.classList.add('loading');
+
+        const formData = new FormData(contactForm);
+        
+        try {
+            const response = await fetch('send-email.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showNotification('Message sent successfully!', 'success');
+                contactForm.reset();
+            } else {
+                showNotification('Failed to send message. Please try again.', 'error');
+            }
+        } catch (error) {
+            showNotification('An error occurred. Please try again.', 'error');
+        } finally {
+            submitBtn.classList.remove('loading');
+        }
+    });
+}
+
+// Notification Function
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// Parallax Effect
+window.addEventListener('scroll', () => {
+    const parallaxElements = document.querySelectorAll('.parallax');
+    parallaxElements.forEach(element => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        element.style.transform = `translate3d(0, ${rate}px, 0)`;
     });
 });
 
 // Image Lazy Loading
-document.addEventListener("DOMContentLoaded", function() {
-    const images = document.querySelectorAll('img[data-src]');
+document.addEventListener('DOMContentLoaded', () => {
+    const lazyImages = document.querySelectorAll('img[data-src]');
     
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -62,21 +143,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    images.forEach(img => imageObserver.observe(img));
+    lazyImages.forEach(img => imageObserver.observe(img));
 });
-
-// Animate on Scroll
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    
-    elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight;
-        
-        if(elementPosition < screenPosition) {
-            element.classList.add('animated');
-        }
-    });
-}
-
-window.addEventListener('scroll', animateOnScroll);
