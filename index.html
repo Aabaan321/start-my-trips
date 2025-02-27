@@ -3,102 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start My Trips - Your Gateway to Unforgettable Travel Experiences</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Start My Trips - Luxury Travel Experiences</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">Start My Trips</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/995595125658" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="main-header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <a href="tel:+995595125658">
+                        <i class="fas fa-phone-alt"></i> +995 595125658
+                    </a>
+                    <a href="mailto:contactus@startmytrips.com">
+                        <i class="fas fa-envelope"></i> contactus@startmytrips.com
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
         </div>
-    </nav>
 
-    <header id="home">
-        <div class="hero-text">
-            <h1>Welcome to Start My Trips!</h1>
-            <p>Your gateway to unforgettable travel experiences</p>
-            <p class="features">✨ Tailored Experiences | Hassle-Free Planning | Exclusive Packages ✨</p>
-            <a href="#packages" class="btn primary-btn">Browse Packages</a>
-        </div>
+        <!-- Navigation -->
+        <nav class="luxury-nav">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="Start My Trips">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="#home" class="active">Home</a>
+                    <div class="dropdown">
+                        <a href="#destinations">
+                            Destinations <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="#baku">Baku & Villages</a>
+                            <a href="#dubai">Dubai & Abu Dhabi</a>
+                            <a href="#georgia">Georgia</a>
+                            <a href="#malaysia">Malaysia</a>
+                        </div>
+                    </div>
+                    <a href="#packages">Packages</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <button class="book-now-btn">Book Now</button>
+                </div>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <section id="packages" class="container">
-        <h2>Our Holiday Packages</h2>
-        <div class="package-options">
-            <div class="option">3 Nights / 4 Days</div>
-            <div class="option">4 Nights / 5 Days</div>
-            <div class="option">5 Nights / 6 Days</div>
-        </div>
-        
-        <div class="destination-grid">
-            <div class="destination-card">
-                <div class="card-image">
-                    <img src="images/baku.jpg" alt="Baku">
-                </div>
-                <div class="card-content">
-                    <h3>🇦🇿 Baku & Nearby Villages</h3>
-                    <p>Explore the heart of Azerbaijan with historic landmarks, rich culture, and stunning landscapes.</p>
-                    <ul class="inclusions">
-                        <li>🛎 Hotel Stay, Guided Tours, Transfers</li>
-                        <li>📌 Old City Baku, Gobustan, Ateshgah</li>
-                    </ul>
-                    <a href="#" class="btn secondary-btn">View Details</a>
-                </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section parallax">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Luxury Travel Made Simple</h1>
+            <p>Let's Plan Your Next Adventure</p>
+            <div class="hero-buttons">
+                <button class="primary-btn">Explore Packages</button>
+                <button class="secondary-btn">Contact Us</button>
             </div>
-            <!-- Similar cards for Dubai, Georgia, and Malaysia -->
         </div>
+        <div class="hero-overlay"></div>
     </section>
 
-    <section id="about" class="container">
-        <h2>Who We Are</h2>
-        <div class="about-content">
-            <p>At Start My Trips, we believe that travel is more than just a journey—it's about discovering new cultures, making unforgettable memories, and exploring the world hassle-free.</p>
-            <p>Our team curates the best holiday packages, ensuring comfort, adventure, and affordability in every trip.</p>
-        </div>
-    </section>
-
-    <section id="contact" class="container">
-        <h2>Contact Us</h2>
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>Get in Touch</h3>
-                <p>📧 Email: contactus@startmytrips.com</p>
-                <p>📱 WhatsApp: +995 595125658</p>
-                <p>📷 Instagram: @aabaanrg73</p>
-            </div>
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <input type="text" id="name" required placeholder="Your Name">
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" required placeholder="Your Email">
-                </div>
-                <div class="form-group">
-                    <textarea id="message" required placeholder="Your Message"></textarea>
-                </div>
-                <button type="submit" class="btn primary-btn">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
+    <!-- Features Section -->
+    <section class="features-section">
         <div class="container">
-            <p>&copy; 2024 Start My Trips. All rights reserved.</p>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-hotel"></i>
+                    <h3>Luxury Hotels</h3>
+                    <p>Premium accommodations at the finest hotels</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-plane"></i>
+                    <h3>Easy Travel</h3>
+                    <p>Hassle-free travel arrangements</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Expert Guides</h3>
+                    <p>Professional local guides</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safe Travel</h3>
+                    <p>Your safety is our priority</p>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Premium Destinations</h2>
+            <div class="destination-grid">
+                <!-- Baku Card -->
+                <div class="destination-card" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="images/baku.jpg" alt="Baku">
+                        <div class="card-overlay">
+                            <span class="destination-price">From $599</span>
+                        </div>
+                        <div class="card-badges">
+                            <span class="badge">Popular</span>
+                            <span class="badge">Luxury</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Baku & Villages</h3>
+                        <p>Experience the blend of modern luxury and ancient culture</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 5-Star Accommodations</li>
+                            <li><i class="fas fa-check"></i> Private Tours</li>
+                            <li><i class="fas fa-check"></i> Luxury Transport</li>
+                        </ul>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Dubai Card -->
+                <div class="destination-card" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Similar structure as Baku card -->
+                </div>
+
+                <!-- Georgia Card -->
+                <div class="destination-card" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Similar structure as Baku card -->
+                </div>
+
+                <!-- Malaysia Card -->
+                <div class="destination-card" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Similar structure as Baku card -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section">
+        <!-- Add packages content -->
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <!-- Add about content -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <!-- Add contact form -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <!-- Add footer content -->
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
