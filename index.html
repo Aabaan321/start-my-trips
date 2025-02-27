@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Start My Trips - Luxury Travel Experiences in Baku, Dubai, Georgia, and Malaysia">
-    <title>Start My Trips - Luxury Travel Experiences</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Start My Trips - Luxury Travel Experience</title>
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,8 +11,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <style>
+        /* We'll add CSS here */
+    </style>
 </head>
 <body>
     <!-- Preloader -->
@@ -24,12 +24,12 @@
         <div class="loader"></div>
     </div>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/995595125658" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/995595125658" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header -->
+    <!-- Main Navigation -->
     <header class="header">
         <div class="top-bar">
             <div class="container">
@@ -42,12 +42,8 @@
                     </a>
                 </div>
                 <div class="social-links">
-                    <a href="#" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook"></i>
-                    </a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
         </div>
@@ -55,36 +51,20 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <a href="index.html">
-                        <h1>Start My Trips</h1>
-                    </a>
+                    <a href="#">Start My Trips</a>
                 </div>
-
-                <div class="nav-menu">
-                    <ul>
-                        <li><a href="#home" class="active">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#destinations">
-                                Destinations <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#baku">Baku & Villages</a></li>
-                                <li><a href="#dubai">Dubai & Abu Dhabi</a></li>
-                                <li><a href="#georgia">Georgia</a></li>
-                                <li><a href="#malaysia">Malaysia</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#packages">Packages</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-
-                <button class="mobile-menu-btn" aria-label="Toggle Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
         </nav>
     </header>
@@ -92,9 +72,8 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>Welcome to Start My Trips</h2>
-            <h1>Discover Luxury Travel Experiences</h1>
-            <p>Your gateway to unforgettable journeys in Baku, Dubai, Georgia, and Malaysia</p>
+            <h1>Your Gateway to Unforgettable Travel Experiences</h1>
+            <p>Discover amazing destinations with our curated luxury travel packages</p>
             <div class="hero-buttons">
                 <a href="#packages" class="btn primary-btn">View Packages</a>
                 <a href="#contact" class="btn secondary-btn">Contact Us</a>
@@ -102,43 +81,15 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-hotel"></i>
-                    <h3>Luxury Accommodations</h3>
-                    <p>Stay in handpicked 5-star hotels</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-plane"></i>
-                    <h3>Easy Travel</h3>
-                    <p>Hassle-free arrangements</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>Expert Guides</h3>
-                    <p>Professional local guides</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Safe Travel</h3>
-                    <p>Your safety is our priority</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Destinations Section -->
-    <section id="destinations" class="destinations">
+    <section id="destinations" class="section">
         <div class="container">
             <h2 class="section-title">Popular Destinations</h2>
             <div class="destinations-grid">
                 <!-- Baku Card -->
                 <div class="destination-card">
                     <div class="card-image">
-                        <img src="images/baku.jpg" alt="Baku">
+                        <img src="https://source.unsplash.com/random/600x400/?baku" alt="Baku">
                         <div class="card-overlay">
                             <span class="price">From $599</span>
                         </div>
@@ -146,7 +97,7 @@
                     <div class="card-content">
                         <h3>Baku & Villages</h3>
                         <p>Experience the blend of modern luxury and ancient culture</p>
-                        <ul class="features-list">
+                        <ul class="features">
                             <li><i class="fas fa-check"></i> 5-Star Hotels</li>
                             <li><i class="fas fa-check"></i> Guided Tours</li>
                             <li><i class="fas fa-check"></i> Airport Transfers</li>
@@ -155,13 +106,41 @@
                     </div>
                 </div>
 
-                <!-- Add similar cards for Dubai, Georgia, and Malaysia -->
+                <!-- Dubai Card -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://source.unsplash.com/random/600x400/?dubai" alt="Dubai">
+                        <div class="card-overlay">
+                            <span class="price">From $799</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Dubai & Abu Dhabi</h3>
+                        <p>Experience luxury and adventure in the UAE</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Luxury Hotels</li>
+                            <li><i class="fas fa-check"></i> Desert Safari</li>
+                            <li><i class="fas fa-check"></i> City Tours</li>
+                        </ul>
+                        <a href="#" class="btn primary-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Georgia Card -->
+                <div class="destination-card">
+                    <!-- Similar structure as above -->
+                </div>
+
+                <!-- Malaysia Card -->
+                <div class="destination-card">
+                    <!-- Similar structure as above -->
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
             <div class="contact-wrapper">
@@ -192,26 +171,22 @@
 
                 <form id="contactForm" class="contact-form">
                     <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <label for="destination">Destination *</label>
-                        <select id="destination" name="destination" required>
+                        <select name="destination" required>
                             <option value="">Select Destination</option>
-                            <option value="Baku">Baku & Villages</option>
-                            <option value="Dubai">Dubai & Abu Dhabi</option>
+                            <option value="Baku">Baku</option>
+                            <option value="Dubai">Dubai</option>
                             <option value="Georgia">Georgia</option>
                             <option value="Malaysia">Malaysia</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
                     </div>
                     <button type="submit" class="btn primary-btn">
                         <span>Send Message</span>
@@ -240,12 +215,9 @@
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Connect With Us</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+                    <h3>Contact</h3>
+                    <p>Phone: +995 595125658</p>
+                    <p>Email: contactus@startmytrips.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -254,7 +226,5 @@
         </div>
     </footer>
 
-    <!-- Custom JS -->
-    <script src="js/script.js"></script>
 </body>
 </html>
